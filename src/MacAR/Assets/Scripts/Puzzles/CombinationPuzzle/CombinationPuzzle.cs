@@ -91,6 +91,31 @@ public class CombinationPuzzle : PuzzleBase
         }
     }
 
+    //For testing
+
+    private void InitializeComboPuzzle(){
+        string code = "3159";
+        string instr1 = "The second row and column each contain one number\n";
+        string instr2 = "The second number is the only number in the first column\n";
+        string instr3 = "The first number is two greater than the second number\n";
+        string instr4 = "The fourth number is the only number in the third row\n";
+        codeCombo = new string[]{code,instr1, instr2, instr3, instr4};
+        currentCode = "_ _ _ _";
+        currentDigit = 0;
+    }
+
+    private string GetCode(){
+        return codeCombo[0];
+    }
+
+    private string GetCurrentCode(){
+        return currentCode;
+    }
+
+    private int GetCurrentDigit(){
+        return currentDigit;
+    }
+
     [ServerRpc(RequireOwnership = false)]
     public void RequestPuzzleDataServerRpc()
     {

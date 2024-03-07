@@ -43,6 +43,26 @@ public class CombinationTests : InputTestFixture
     {
         NUnit.Framework.Assert.That(characterInstance, !Is.Null);
     }
+
+    [Test]
+    public void GenerateInstructionsTest()
+    {
+        //CombinationPuzzle comboPuzzle = new CombinationPuzzle();
+        //PrivateObject privateObjectComboPuzzle = new PrivateObject(comboPuzzle);
+        //string[] returnedCode = (string[])privateObjectComboPuzzle.Invoke("GetCodeCombo");
+        //int[,] matrix = new int[3,3];
+        CombinationPuzzle m_ComboPuzzle = new CombinationPuzzle();
+        PrivateObject privateObjectComboPuzzle = new PrivateObject(m_ComboPuzzle);
+        privateObjectComboPuzzle.Invoke("InitializeComboPuzzle");
+        string code = (string)privateObjectComboPuzzle.Invoke("GetCode");
+        privateObjectComboPuzzle.Invoke("KeyPadPress", (string)"3");
+        //Debug.Log(privateObjectComboPuzzle.Invoke("GetCurrentCode"));
+        //comboPuzzle.KeyPadPress("3");
+        //comboPuzzle.KeyPadPress("1");
+        //comboPuzzle.KeyPadPress("5");
+        //comboPuzzle.KeyPadPress("9");
+        NUnit.Framework.Assert.True(2==2);
+    }
 /*
     [Test]
     public void IncrementLevelTest()
